@@ -1,0 +1,26 @@
+<project name="behat" default="run" basedir="/opt/behat/bin">   
+  <target name="run">        
+     <delete dir="${basedir}/report" />
+     <mkdir dir="${basedir}/report"/> 
+     <parallel>
+      <antcall target="WindowsIE"></antcall>
+      <antcall target="WindowsChrome"></antcall> 
+      <antcall target="WindowsFirefox"></antcall>      
+     </parallel>      
+  </target>
+  <target name="WindowsIE">
+    <exec dir="${basedir}" executable="php" failonerror="true">
+    <arg line= "behat -f html --out report/IE.html -p WindowsIE"/>
+    </exec>
+  </target>
+  <target name="WindowsChrome">
+    <exec dir="${basedir}" executable="php" failonerror="true">
+    <arg line= "behat -f html --out report/chrome.html -p WindowsChrome"/>
+    </exec>
+  </target>
+  <target name="WindowsFirefox">
+    <exec dir="${basedir}" executable="php" failonerror="true">
+    <arg line= "behat -f html --out report/firefox.html -p WindowsFirefox"/>
+    </exec>
+  </target>
+</project>
