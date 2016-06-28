@@ -17,10 +17,5 @@
     <exec dir="${basedir}" executable="php" failonerror="true">
     <arg line= "behat -f html --out report/chrome.html -p WindowsChrome"/>
     </exec>
-  </target>
-  <target name="WindowsFirefox">
-    <exec dir="${basedir}" executable="php" failonerror="true">
-    <arg line= "behat -f html --out report/firefox.html -p WindowsFirefox"/>
-    </exec>
-  </target>
+  </target> 
 </project>
